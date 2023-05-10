@@ -8,7 +8,7 @@ main{
     position:relative;
     width:100vw;
     height:100vh;
-    background-color: aqua;
+
 }
 
 main .battle-background{
@@ -81,11 +81,12 @@ main .battle-background{
     position: absolute;
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:center;
     right:-10%;
-    bottom: 30%;
+    bottom: 27%;
     width:40%;
-    height:30%;
+    height:37%;
+    z-index: 4;
 }
 
 .bar-list img
@@ -96,8 +97,33 @@ main .battle-background{
 /* Barre de vie contenue dans .bar-list */
 .life-bar{
 
+    position:relative;
     width:100%;
-    height:35%;
+    height:30%;
+}
+.life-bar #life-bar1{
+    position: absolute;
+    width: 29.5%;
+    height: 5%;
+    background-color: #5DD531;
+    right:35%;
+    bottom: 66%;
+}
+.life-bar #life-bar2{
+    position: absolute;
+    width: 29.5%;
+    height: 5%;
+    background-color: #5DD531;
+    right:35%;
+    bottom: 66%;
+}
+.life-bar #life-bar3{
+    position: absolute;
+    width: 29.5%;
+    height: 5%;
+    background-color: #5DD531;
+    right:35%;
+    bottom: 66%;
 }
 
 /* Conteneur du texte et choix de combat */
@@ -112,9 +138,70 @@ main .battle-background{
 }
 
 
+/* Paramaetre des div pokemon du joueur */
+#player-poke1
+{
+    position: absolute;
+    width:10%;
+    height:30%;
 
+    left: 10%;
+    bottom: 20%;
+}
+#player-poke2
+{
+    position: absolute;
+    width:10%;
+    height:30%;
 
+    left: 25%;
+    bottom: 20%;
+}
+#player-poke3
+{
+    position: absolute;
+    width:10%;
+    height:30%;
 
+    left: 40%;
+    bottom: 20%;
+}
+
+/* parametre div des pokemon de l'ia */
+#ai-poke1
+{
+    position: absolute;
+    width:10%;
+    height:30%;
+
+    right: 10%;
+    top: 10%;
+}
+#ai-poke2
+{
+    position: absolute;
+    width:10%;
+    height:30%;
+
+    right: 25%;
+    top: 10%;
+}
+#ai-poke3
+{
+    position: absolute;
+    width:10%;
+    height:30%;
+
+    right: 40%;
+    top: 10%;
+}
+
+.pokemon img{
+
+    position:absolute;
+    width:100%;
+    height:100%;
+}
 
 
 

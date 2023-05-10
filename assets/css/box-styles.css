@@ -1,0 +1,26 @@
+body{
+
+    margin:0%;
+}
+/* Conteneur Global */
+main{
+    overflow: hidden;
+    position:relative;
+    width:100vw;
+    height:100vh;
+    background-color: aqua;
+}
+
+
+
+
+/* Conteneur du texte et choix de combat */
+.choice-box{
+
+    position:absolute;
+    width:100%;
+    height:29.5%;
+    bottom:0%;
+    border:2px solid black;
+    
+}

@@ -1,6 +1,12 @@
-body{
 
+@font-face {
+    font-family: displayFont;
+    src: url("/assets/font/PKMN\ RBYGSC.ttf");
+}
+
+body{
     margin:0%;
+    font-family: displayFont;
 }
 /* Conteneur Global */
 main{
@@ -8,19 +14,51 @@ main{
     position:relative;
     width:100vw;
     height:100vh;
-    background-color: aqua;
 }
 
 
 
 
 /* Conteneur du texte et choix de combat */
-.choice-box{
 
-    position:absolute;
-    width:100%;
-    height:29.5%;
-    bottom:0%;
-    border:2px solid black;
+
+.choix p{
+font-size: 2.em;
+}
+
+
+.choix{
+    position: absolute;
+    bottom: -10%;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#choix1{
+    width: 15%;
+    padding-top: 0.3%;
     
+}
+
+#choix2{
+    padding-top: 0.3%;
+    width: 15%;
+}
+
+#choix3{
+    padding-top: 0.3%;
+    width: 15%;
+}
+
+.choice-box img{
+    width: 95%;
+    aspect-ratio: 1/1;
+}
+
+
+.choice-box button{
+    background: none;
+    border: none;
+    width: 95%;
 }

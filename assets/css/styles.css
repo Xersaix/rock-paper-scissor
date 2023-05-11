@@ -1,3 +1,5 @@
+
+
 body{
 
     margin:0%;
@@ -43,7 +45,7 @@ main .battle-background{
     height:30%;
 }
 /* Gestion de la barre de vie  min-width:25% max-width:29.5% */
-.ai-life-bar #life-bar1
+.ai-life-bar #ai-life-bar1
 {
     position: absolute;
     width: 29.5%;
@@ -51,8 +53,10 @@ main .battle-background{
     background-color: #5DD531;
     left:29%;
     bottom: 53%;
+    border-radius: 3px;
+    transition: width 1s;
 }
-.ai-life-bar #life-bar2
+.ai-life-bar #ai-life-bar2
 {
     position: absolute;
     width: 29.5%;
@@ -60,8 +64,10 @@ main .battle-background{
     background-color: #5DD531;
     left:29%;
     bottom: 53%;
+    border-radius: 3px;
+    transition: width 1s;
 }
-.ai-life-bar #life-bar3
+.ai-life-bar #ai-life-bar3
 {
     position: absolute;
     width: 29.5%;
@@ -69,6 +75,8 @@ main .battle-background{
     background-color: #5DD531;
     left:29%;
     bottom: 53%;
+    border-radius: 3px;
+    transition: width 1s;
 }
 
 
@@ -103,27 +111,33 @@ main .battle-background{
 }
 .life-bar #life-bar1{
     position: absolute;
-    width: 29.5%;
-    height: 5%;
+    width: 30.4%;
+    height: 4.5%;
     background-color: #5DD531;
-    right:35%;
-    bottom: 66%;
+    left:35.8%;
+    bottom: 67.5%;
+    border-radius: 3px;
+    transition: width 1s;
 }
 .life-bar #life-bar2{
     position: absolute;
-    width: 29.5%;
-    height: 5%;
+    width: 30.4%;
+    height: 4.5%;
     background-color: #5DD531;
-    right:35%;
-    bottom: 66%;
+    left:35.8%;
+    bottom: 67.5%;
+    border-radius: 3px;
+    transition: width 1s;
 }
 .life-bar #life-bar3{
     position: absolute;
-    width: 29.5%;
-    height: 5%;
+    width: 30.4%;
+    height: 4.5%;
     background-color: #5DD531;
-    right:35%;
-    bottom: 66%;
+    left:35.8%;
+    bottom: 67.5%;
+    border-radius: 3px;
+    transition: width 1s;
 }
 
 /* Conteneur du texte et choix de combat */
@@ -133,7 +147,7 @@ main .battle-background{
     width:100%;
     height:29.5%;
     bottom:0%;
-    border:2px solid black;
+    text-align: center;
     
 }
 
@@ -142,37 +156,37 @@ main .battle-background{
 #player-poke1
 {
     position: absolute;
-    width:10%;
-    height:30%;
+    width:15%;
+    height:45%;
 
-    left: 10%;
-    bottom: 20%;
+    left: 5%;
+    bottom: 15%;
 }
 #player-poke2
 {
     position: absolute;
-    width:10%;
-    height:30%;
+    width:15%;
+    height:45%;
 
-    left: 25%;
-    bottom: 20%;
+    left: 20%;
+    bottom: 15%;
 }
 #player-poke3
 {
     position: absolute;
-    width:10%;
-    height:30%;
+    width:15%;
+    height:45%;
 
-    left: 40%;
-    bottom: 20%;
+    left: 35%;
+    bottom: 15%;
 }
 
 /* parametre div des pokemon de l'ia */
 #ai-poke1
 {
     position: absolute;
-    width:10%;
-    height:30%;
+    width:15%;
+    height:45%;
 
     right: 10%;
     top: 10%;
@@ -180,8 +194,8 @@ main .battle-background{
 #ai-poke2
 {
     position: absolute;
-    width:10%;
-    height:30%;
+    width:15%;
+    height:45%;
 
     right: 25%;
     top: 10%;
@@ -189,13 +203,18 @@ main .battle-background{
 #ai-poke3
 {
     position: absolute;
-    width:10%;
-    height:30%;
+    width:15%;
+    height:45%;
 
     right: 40%;
     top: 10%;
 }
 
+.pokemon{
+
+    width:15%;
+    height:45%;
+}
 .pokemon img{
 
     position:absolute;

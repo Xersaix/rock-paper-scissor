@@ -36,19 +36,19 @@ font-size: 2.em;
 }
 
 #choix1{
-    width: 15%;
+    width: 20%;
     padding-top: 0.3%;
     
 }
 
 #choix2{
     padding-top: 0.3%;
-    width: 15%;
+    width: 20%;
 }
 
 #choix3{
     padding-top: 0.3%;
-    width: 15%;
+    width: 20%;
 }
 
 .choice-box img{

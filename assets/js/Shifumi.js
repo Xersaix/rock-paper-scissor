@@ -60,7 +60,7 @@ function battle(player_index) {
         reduce_life_player(player_index, player.pokemon[player_index])
         console.log("YOU LOSE")
     }
-    console.log(player.pokemon[0])
+
 }
 
 // function 

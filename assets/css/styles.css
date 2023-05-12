@@ -54,7 +54,7 @@ main .battle-background{
     left:29%;
     bottom: 53%;
     border-radius: 3px;
-    transition: width 1s;
+    transition: width 1s, background-color 1s;
 }
 .ai-life-bar #ai-life-bar2
 {

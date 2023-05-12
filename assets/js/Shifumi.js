@@ -10,6 +10,12 @@ var life_player3 = document.getElementById("life-bar3")
 var ai_life_player1 = document.getElementById("ai-life-bar1")
 var ai_life_player2 = document.getElementById("ai-life-bar2")
 var ai_life_player3 = document.getElementById("ai-life-bar3")
+var water_pokemon = document.getElementById("player-poke2");
+var fire_pokemon = document.getElementById("player-poke1");
+var grass_pokemon = document.getElementById("player-poke3");
+var water_pokemon_ai = document.getElementById("ai-poke2");
+var fire_pokemon_ai = document.getElementById("ai-poke1");
+var grass_pokemon_ai = document.getElementById("ai-poke3");
 var choice = ["fire", "water", "grass"];
 
 // point de vie des pokemon du joueur
@@ -24,6 +30,30 @@ var enemy = {
 
     pokemon: [3, 3, 3],
 }
+// Create Animation
+const player_charge_anim = [
+
+    { transform: "translatex(0px)" },
+    { transform: "translatex(+50px)" },
+
+];
+const player_damage_anim = [
+
+    { transform: "translatex(0px)" },
+    { transform: "translatex(-50px)" },
+
+];
+const player_charge_time = {
+    duration: 200,
+    iterations: 1,
+};
+const player_react_time = {
+    duration: 200,
+    iterations: 1,
+    delay: 200,
+};
+
+
 
 // Fonction qui gère le combat
 function battle(player_index) {
@@ -36,27 +66,33 @@ function battle(player_index) {
         console.log("DRAW")
 
     } else if (choice[player_index] == "fire" && ai_choice == "grass") {
-
+        fire_pokemon.animate(player_charge_anim,player_charge_time)
+        grass_pokemon_ai.animate(player_charge_anim,player_react_time)
         reduce_life_enemy(ai_index, enemy.pokemon[ai_index])
         console.log("YOU WIN")
     } else if (choice[player_index] == "water" && ai_choice == "fire") {
-
+        water_pokemon.animate(player_charge_anim,player_charge_time)
+        fire_pokemon_ai.animate(player_charge_anim,player_react_time)
         reduce_life_enemy(ai_index, enemy.pokemon[ai_index])
         console.log("YOU WIN")
     } else if (choice[player_index] == "grass" && ai_choice == "water") {
-
+        grass_pokemon.animate(player_charge_anim,player_charge_time)
+        water_pokemon_ai.animate(player_charge_anim,player_react_time)
         reduce_life_enemy(ai_index, enemy.pokemon[ai_index])
         console.log("YOU WIN")
     } else if (choice[player_index] == "grass" && ai_choice == "fire") {
         reduce_life_player(player_index, player.pokemon[player_index])
-
+        grass_pokemon.animate(player_damage_anim,player_react_time)
+        fire_pokemon_ai.animate(player_damage_anim,player_charge_time)
         console.log("YOU LOSE")
     } else if (choice[player_index] == "fire" && ai_choice == "water") {
-
+        fire_pokemon.animate(player_damage_anim,player_react_time)
+        water_pokemon_ai.animate(player_damage_anim,player_charge_time)
         reduce_life_player(player_index, player.pokemon[player_index])
         console.log("YOU LOSE")
     } else if (choice[player_index] == "water" && ai_choice == "grass") {
-
+        water_pokemon.animate(player_damage_anim,player_react_time)
+        grass_pokemon_ai.animate(player_damage_anim,player_charge_time)
         reduce_life_player(player_index, player.pokemon[player_index])
         console.log("YOU LOSE")
     }
@@ -79,25 +115,22 @@ function reduce_life_player(choice_index, life_index) {
     switch (choice_index) {
         case 0:
             life_player1.style.width = new_width
-            if(player.pokemon[choice_index] == 1)
-            {
-                life_player1.style.backgroundColor= "#FF0000";
+            if (player.pokemon[choice_index] == 1) {
+                life_player1.style.backgroundColor = "#FF0000";
             }
             break;
 
         case 1:
             life_player2.style.width = new_width
-            if(player.pokemon[choice_index] == 1)
-            {
-                life_player2.style.backgroundColor= "#FF0000";
+            if (player.pokemon[choice_index] == 1) {
+                life_player2.style.backgroundColor = "#FF0000";
             }
             break;
 
         case 2:
             life_player3.style.width = new_width
-            if(player.pokemon[choice_index] == 1)
-            {
-                life_player3.style.backgroundColor= "#FF0000";
+            if (player.pokemon[choice_index] == 1) {
+                life_player3.style.backgroundColor = "#FF0000";
             }
             break;
 
@@ -121,25 +154,22 @@ function reduce_life_enemy(number, width_index) {
     switch (number) {
         case 0:
             ai_life_player2.style.width = new_width
-            if(enemy.pokemon[number] == 1)
-            {
-                ai_life_player2.style.backgroundColor= "#FF0000";
+            if (enemy.pokemon[number] == 1) {
+                ai_life_player2.style.backgroundColor = "#FF0000";
             }
             break;
 
         case 1:
             ai_life_player1.style.width = new_width
-            if(enemy.pokemon[number] == 1)
-            {
-                ai_life_player1.style.backgroundColor= "#FF0000";
+            if (enemy.pokemon[number] == 1) {
+                ai_life_player1.style.backgroundColor = "#FF0000";
             }
             break;
 
         case 2:
             ai_life_player3.style.width = new_width
-            if(enemy.pokemon[number] == 1)
-            {
-                ai_life_player3.style.backgroundColor= "#FF0000";
+            if (enemy.pokemon[number] == 1) {
+                ai_life_player3.style.backgroundColor = "#FF0000";
             }
             break;
 

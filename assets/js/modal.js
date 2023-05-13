@@ -4,6 +4,7 @@ var modal = document.getElementById("myModal");
 var pokeball = document.getElementById("menu-pokeball");
 var pokeball_text = document.querySelector("#pokeball-text");
 var fight = document.getElementById("fight-button")
+var fight_song = document.getElementById("battle_song")
 
 // Get the button that opens the modal
 
@@ -22,4 +23,5 @@ window.onclick = function (event) {
 
 fight.addEventListener("click",function(){
     modal.style.display = "none";
+    fight_song.play()
 })

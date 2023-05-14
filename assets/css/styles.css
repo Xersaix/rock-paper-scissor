@@ -110,6 +110,29 @@ main .battle-background{
     width:100%;
     height:30%;
 }
+.life-bar p{
+
+    font-size: 50%;
+
+    color: white;
+}
+.life-bar .type-icon{
+
+
+    width:20px;
+    height: 20px;
+    z-index: 8;
+}
+
+.player-pokemon-info{
+    position: absolute;
+    display: flex;
+    left: 20%;
+    top:0%;
+    flex-direction: row;
+
+    width:50%;
+}
 .life-bar #life-bar1{
     position: absolute;
     width: 30.4%;

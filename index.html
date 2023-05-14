@@ -12,9 +12,16 @@
 </head>
 
 <body>
-    <audio src="assets/audio/battle.mp3"id="battle_song"></audio>
-    <audio src="assets/audio/Tackle.mp3"id="tackle"></audio>
-    <audio src="assets/audio/9.ogg" id="tortank-cry"></audio>
+    <audio src="assets/audio/battle.mp3" id="battle_song"></audio>
+    <audio src="assets/audio/Tackle.mp3" id="tackle"></audio>
+    <audio src="assets/audio/torktank.ogg" id="ai-water-cry"></audio>
+    <audio src="assets/audio/braségali.ogg" id="ai-fire-cry"></audio>
+    <audio src="assets/audio/maracachi.ogg" id="ai-grass-cry"></audio>
+    <audio src="assets/audio/aquali.ogg" id="player-water-cry"></audio>
+    <audio src="assets/audio/feunard.ogg" id="player-fire-cry"></audio>
+    <audio src="assets/audio/jungko.ogg" id="player-grass-cry"></audio>
+    <audio src="assets/audio/faint.mp3" id="faint"></audio>
+    <audio src="assets/audio/draw.mp3" id="draw"></audio>
     <!-- Battle Scene -->
     <main>
         <img src="assets/img/park.png" alt="" class="battle-background">
@@ -44,17 +51,30 @@
         <div class="bar-list">
             <!-- Barre de vie 1 -->
             <div class="life-bar">
+                <div class="player-pokemon-info">
+                    <p id="player-fire-name">name </p>
+                    <div class="type-icon"><img src="assets/img/fire.png" alt=""></div>
+                </div>
+
                 <img src="assets/img/vieB.png" alt="">
                 <div id="life-bar1"></div>
 
             </div>
             <!-- Barre de vie 2 -->
             <div class="life-bar">
+                <div class="player-pokemon-info">
+                    <p id="player-water-name">name </p>
+                    <div class="type-icon"><img src="assets/img/water.png" alt=""></div>
+                </div>
                 <img src="assets/img/vieB.png" alt="">
                 <div id="life-bar2"></div>
             </div>
             <!-- Barre de vie 3 -->
             <div class="life-bar">
+                <div class="player-pokemon-info">
+                    <p id="player-grass-name">name </p>
+                    <div class="type-icon"><img src="assets/img/grass.png" alt=""></div>
+                </div>
                 <img src="assets/img/vieB.png" alt="">
                 <div id="life-bar3"></div>
             </div>
@@ -111,19 +131,21 @@
                 <div id="loader">Loading</div>
                 <div class="pokeball-top"><img src="assets/img/pokeball-top.png" alt=""></div>
                 <div id="pokeball-text">
-                    
+
                     <p>Comment jouer:</p>
-                    <p>Le jeu fonction comment un pierre-feuille-ciseaux mais mais les éléments feu-eau-herbe:</p>
-                    <img src="assets/img/type.jpg" alt="">
+                    <p>Le jeu fonction comment un pierre-feuille-ciseaux mais mais les éléments feu-eau-herbe:</p><br>
+                    <img src="assets/img/type.jpg" alt=""><br>
 
 
                     <ul>
-                        <li>Chaqu'un de vos pokemon represente un élement que vous pouvez perdre si il perd tout ces point de
-                            vie.(Exemple: Si votre aquali est KO vous ne pourrez plus utilisez d'attaque eau)</li>
+                        <li>Chaqu'un de vos pokemon represente un élement que vous pouvez perdre si il perd tout ces
+                            point de
+                            vie.(Exemple: Si votre aquali est KO vous ne pourrez plus utilisez d'attaque eau)</li><br>
 
-                            <li>Si un joueur perd un pokemon son adversaire ne peux plus choisir deux fois de suite le meme attaquant.</li>
+                        <li>Si un joueur perd un pokemon son adversaire ne peux plus choisir deux fois de suite le meme
+                            attaquant.</li><br>
 
-                            <li>Le premier joueur qui a 2 pokemon KO perd.</li>
+                        <li>Le premier joueur qui a 2 pokemon KO perd.</li><br>
                     </ul>
                     <button id="fight-button"><img src="assets/img/fight.png" alt=""></button>
                 </div>

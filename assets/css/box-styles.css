@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @font-face {
     font-family: displayFont;
     src: url("/assets/font/PKMN\ RBYGSC.ttf");
@@ -6,7 +6,9 @@
 
 body{
     margin:0%;
-    font-family: displayFont;
+    /* font-family: displayFont; */
+    font-family: 'Press Start 2P', cursive;
+
 }
 /* Conteneur Global */
 main{

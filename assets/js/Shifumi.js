@@ -17,9 +17,20 @@ var water_pokemon_ai = document.getElementById("ai-poke2");
 var fire_pokemon_ai = document.getElementById("ai-poke1");
 var grass_pokemon_ai = document.getElementById("ai-poke3");
 var choice = ["fire", "water", "grass"];
-var faint_song
+var faint_song = document.getElementById("faint")
 var tackle_song = document.getElementById("tackle");
+var ai_fire_cry = document.getElementById("ai-fire-cry");
+var ai_water_cry = document.getElementById("ai-water-cry");
+var ai_grass_cry = document.getElementById("ai-grass-cry");
+var player_fire_cry = document.getElementById("player-fire-cry");
+var player_water_cry = document.getElementById("player-water-cry");
+var player_grass_cry = document.getElementById("player-grass-cry");
+var player_fire_name = document.getElementById("player-fire-name");
+var player_water_name = document.getElementById("player-water-name");
+var player_grass_name = document.getElementById("player-grass-name");
 var win_loose_modal = document.getElementById("win-loose");
+var draw_song = document.getElementById("draw")
+
 var win_loose_text = document.getElementById("pokeball-text-result")
 var result_win = document.getElementById("result-text")
 
@@ -55,7 +66,7 @@ const player_damage_anim = [
 
 ];
 const player_charge_time = {
-    duration: 200,
+    duration: 250,
     iterations: 1,
 };
 const faint_anim = [
@@ -64,54 +75,52 @@ const faint_anim = [
     { transform: "translatey(+100px)" },
 ];
 const player_react_time = {
-    duration: 200,
+    duration: 250,
     iterations: 1,
     delay: 200,
 };
+player_fire_name.innerText = player.poke_name[0];
+player_water_name.innerText = player.poke_name[1];
+player_grass_name.innerText = player.poke_name[2];
 
 function attack_ai() {
     let ai_index = Math.floor(Math.random() * 3);
-    
-    while(enemy.pokemon[ai_index] == 0)
-    {
+
+    while (enemy.pokemon[ai_index] == 0) {
         ai_index = Math.floor(Math.random() * 3);
     }
     return ai_index
 }
 
-function ending_match()
-{
-    let player_loose = 0 ;
+function ending_match() {
+    let player_loose = 0;
     let ai_loose = 0;
-for (let index = 0;  index < player.pokemon.length ; index++) {
+    for (let index = 0; index < player.pokemon.length; index++) {
 
 
-    if(player.pokemon[index] == 0)
-    {
-        player_loose += 1;
+        if (player.pokemon[index] == 0) {
+            player_loose += 1;
 
-    }else if(enemy.pokemon[index] == 0)
-    {
-        ai_loose += 1;
+        } else if (enemy.pokemon[index] == 0) {
+            ai_loose += 1;
+        }
+
+        if (player_loose > 1) {
+
+            win_loose_modal.style.display = "block";
+            win_loose_text.style.display = "flex";
+            win_loose_modal.style.backgroundColor = "rgba(0, 0, 0, 0.94)";
+            result_win.innerText = "Defaite";
+        } else if (ai_loose > 1) {
+            win_loose_modal.style.display = "block";
+            win_loose_text.style.display = "flex";
+            win_loose_modal.style.backgroundColor = "rgba(0, 0, 0, 0.94)"
+            result_win.innerText = "Victoire";
+        }
+
     }
-
-    if(player_loose == 2)
-    {
-        win_loose_modal.style.display = "block";
-        win_loose_text.style.display = "block";
-        win_loose_modal.style.backgroundColor = "rgba(0, 0, 0, 0.94)";
-        result_win.innerText = "Defaite";
-    }else if(ai_loose == 2)
-    {
-        win_loose_modal.style.display = "block";
-        win_loose_text.style.display = "flex";
-        win_loose_modal.style.backgroundColor = "rgba(0, 0, 0, 0.94)"
-        result_win.innerText = "Victoire";
-    }
-
-}
-    console.log("Player lost "+ player_loose +"pokemon")
-    console.log("Ai lost "+ ai_loose +"pokemon")
+    console.log("Player lost " + player_loose + "pokemon")
+    console.log("Ai lost " + ai_loose + "pokemon")
 }
 
 // Fonction qui gère le combat
@@ -121,45 +130,59 @@ function battle(player_index) {
     let ai_choice = choice[ai_index];
     console.log(choice[player_index]);
     console.log(ai_choice);
-    if (choice[player_index] == "fire" && ai_choice == "fire" || choice[player_index] == "water" && ai_choice == "water" || choice[player_index] == "grass" && ai_choice == "grass") {
-        console.log("DRAW")
+    if (choice[player_index] == "fire" && ai_choice == "fire") {
+        console.log("DRAW");
+        draw_song.play();
+        fire_pokemon.animate(player_charge_anim, player_charge_time);
+        fire_pokemon_ai.animate(player_damage_anim, player_charge_time);
 
-    } else if (choice[player_index] == "fire" && ai_choice == "grass") {
-        tackle_song.play()
-        fire_pokemon.animate(player_charge_anim, player_charge_time)
-        grass_pokemon_ai.animate(player_charge_anim, player_react_time)
-        reduce_life_enemy(ai_index, enemy.pokemon[ai_index])
-        console.log("YOU WIN")
-    } else if (choice[player_index] == "water" && ai_choice == "fire") {
-        tackle_song.play()
+    } else if (choice[player_index] == "water" && ai_choice == "water") {
+        draw_song.play();
         water_pokemon.animate(player_charge_anim, player_charge_time)
-        fire_pokemon_ai.animate(player_charge_anim, player_react_time)
-        reduce_life_enemy(ai_index, enemy.pokemon[ai_index])
-        console.log("YOU WIN")
+        water_pokemon_ai.animate(player_damage_anim, player_charge_time)
+        console.log("DRAW");
+    } else if (choice[player_index] == "grass" && ai_choice == "grass") {
+        draw_song.play();
+        grass_pokemon.animate(player_charge_anim, player_charge_time);
+        grass_pokemon_ai.animate(player_damage_anim, player_charge_time);
+        console.log("DRAW");
+    }
+    else if (choice[player_index] == "fire" && ai_choice == "grass") {
+        tackle_song.play();
+        fire_pokemon.animate(player_charge_anim, player_charge_time);
+        grass_pokemon_ai.animate(player_charge_anim, player_react_time);
+        reduce_life_enemy(ai_index, enemy.pokemon[ai_index]);
+        console.log("YOU WIN");
+    } else if (choice[player_index] == "water" && ai_choice == "fire") {
+        tackle_song.play();
+        water_pokemon.animate(player_charge_anim, player_charge_time);
+        fire_pokemon_ai.animate(player_charge_anim, player_react_time);
+        reduce_life_enemy(ai_index, enemy.pokemon[ai_index]);
+        console.log("YOU WIN");
     } else if (choice[player_index] == "grass" && ai_choice == "water") {
         tackle_song.play()
-        grass_pokemon.animate(player_charge_anim, player_charge_time)
-        water_pokemon_ai.animate(player_charge_anim, player_react_time)
-        reduce_life_enemy(ai_index, enemy.pokemon[ai_index])
-        console.log("YOU WIN")
+        grass_pokemon.animate(player_charge_anim, player_charge_time);
+        water_pokemon_ai.animate(player_charge_anim, player_react_time);
+        reduce_life_enemy(ai_index, enemy.pokemon[ai_index]);
+        console.log("YOU WIN");
     } else if (choice[player_index] == "grass" && ai_choice == "fire") {
-        tackle_song.play()
-        reduce_life_player(player_index, player.pokemon[player_index])
-        grass_pokemon.animate(player_damage_anim, player_react_time)
-        fire_pokemon_ai.animate(player_damage_anim, player_charge_time)
-        console.log("YOU LOSE")
+        tackle_song.play();
+        reduce_life_player(player_index, player.pokemon[player_index]);
+        grass_pokemon.animate(player_damage_anim, player_react_time);
+        fire_pokemon_ai.animate(player_damage_anim, player_charge_time);
+        console.log("YOU LOSE");
     } else if (choice[player_index] == "fire" && ai_choice == "water") {
-        tackle_song.play()
-        fire_pokemon.animate(player_damage_anim, player_react_time)
-        water_pokemon_ai.animate(player_damage_anim, player_charge_time)
-        reduce_life_player(player_index, player.pokemon[player_index])
-        console.log("YOU LOSE")
+        tackle_song.play();
+        fire_pokemon.animate(player_damage_anim, player_react_time);
+        water_pokemon_ai.animate(player_damage_anim, player_charge_time);
+        reduce_life_player(player_index, player.pokemon[player_index]);
+        console.log("YOU LOSE");
     } else if (choice[player_index] == "water" && ai_choice == "grass") {
-        tackle_song.play()
-        water_pokemon.animate(player_damage_anim, player_react_time)
-        grass_pokemon_ai.animate(player_damage_anim, player_charge_time)
-        reduce_life_player(player_index, player.pokemon[player_index])
-        console.log("YOU LOSE")
+        tackle_song.play();
+        water_pokemon.animate(player_damage_anim, player_react_time);
+        grass_pokemon_ai.animate(player_damage_anim, player_charge_time);
+        reduce_life_player(player_index, player.pokemon[player_index]);
+        console.log("YOU LOSE");
     }
     ending_match();
 }
@@ -183,10 +206,13 @@ function reduce_life_player(choice_index, life_index) {
             if (player.pokemon[choice_index] == 1) {
                 life_player1.style.backgroundColor = "#FF0000";
             } else if (player.pokemon[choice_index] == 0 && player.alive[choice_index]) {
+                player_fire_cry.play();
+                faint_song.play();
                 fire_pokemon.animate(faint_anim, player_react_time);
                 player.alive[choice_index] = false;
+
                 fire_pokemon.style.opacity = 0
-            
+
             } else if (player.pokemon[choice_index] > 1) {
                 life_player1.style.backgroundColor = "#5DD531";
 
@@ -197,6 +223,8 @@ function reduce_life_player(choice_index, life_index) {
             if (player.pokemon[choice_index] == 1) {
                 life_player2.style.backgroundColor = "#FF0000";
             } else if (player.pokemon[choice_index] == 0 && player.alive[choice_index]) {
+                player_water_cry.play();
+                faint_song.play();
                 water_pokemon.animate(faint_anim, player_react_time);
                 player.alive[choice_index] = false;
                 water_pokemon.style.opacity = 0
@@ -211,6 +239,8 @@ function reduce_life_player(choice_index, life_index) {
             if (player.pokemon[choice_index] == 1) {
                 life_player3.style.backgroundColor = "#FF0000";
             } else if (player.pokemon[choice_index] == 0 && player.alive[choice_index]) {
+                player_grass_cry.play();
+                faint_song.play();
                 grass_pokemon.animate(faint_anim, player_react_time);
                 player.alive[choice_index] = false;
                 grass_pokemon.style.opacity = 0
@@ -245,9 +275,11 @@ function reduce_life_enemy(number, width_index) {
             } else if (enemy.pokemon[number] > 1) {
                 ai_life_player2.style.backgroundColor = "#5DD531";
             } else if (enemy.pokemon[number] == 0) {
+                ai_fire_cry.play();
+                faint_song.play();
                 fire_pokemon_ai.animate(faint_anim, player_react_time);
                 enemy.alive[number] = false;
-                fire_pokemon_ai.style.opacity = 0
+                fire_pokemon_ai.style.opacity = 0;
             }
             break;
 
@@ -258,7 +290,10 @@ function reduce_life_enemy(number, width_index) {
             } else if (enemy.pokemon[number] > 1) {
                 ai_life_player1.style.backgroundColor = "#5DD531";
             } else if (enemy.pokemon[number] == 0) {
+                ai_water_cry.play()
+                faint_song.play();
                 water_pokemon_ai.animate(faint_anim, player_react_time);
+
                 enemy.alive[number] = false;
                 water_pokemon_ai.style.opacity = 0
             }
@@ -271,7 +306,10 @@ function reduce_life_enemy(number, width_index) {
             } else if (enemy.pokemon[number] > 1) {
                 ai_life_player3.style.backgroundColor = "#5DD531";
             } else if (enemy.pokemon[number] == 0) {
+                ai_grass_cry.play()
+                faint_song.play();
                 grass_pokemon_ai.animate(faint_anim, player_react_time);
+
                 enemy.alive[number] = false;
                 grass_pokemon_ai.style.opacity = 0
             }

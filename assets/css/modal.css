@@ -80,18 +80,19 @@
     }
 
     to {
-        height: 40vh;
+        height: 34vh;
     }
 }
 
 #pokeball-text {
 
+    display: none;
     width: 100%;
     height: 40vh;
     background-color: white;
     overflow: auto;
     animation-name: expension;
-    animation-duration: 2s;
+    animation-duration: 4s;
 
 
 }
@@ -109,17 +110,7 @@
 }
 
 /* Add Animation */
-@-webkit-keyframes animatetop {
-    from {
-        top: -20%;
-        opacity: 0
-    }
 
-    to {
-        top: 10%;
-        opacity: 1
-    }
-}
 
 @keyframes animatetop {
     from {
@@ -131,4 +122,31 @@
         top: 10%;
         opacity: 1
     }
+}
+
+
+/* Loader */
+#loader {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    height: auto;
+    /* animation: swing 3000ms infinite; */
+    animation: mymove 1s steps(5, start) infinite;
+}
+
+#loader p {
+    font-size: 20vw;
+}
+
+@keyframes mymove {
+    from {
+        color: white;
+    }
+
+    to {
+        color: rgba(255, 255, 255, 0)
+    }
+
+
 }

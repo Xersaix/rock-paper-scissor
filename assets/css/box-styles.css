@@ -11,12 +11,7 @@ body{
 
 }
 /* Conteneur Global */
-main{
-    overflow: hidden;
-    position:relative;
-    width:100vw;
-    height:100vh;
-}
+
 
 
 
@@ -24,43 +19,55 @@ main{
 /* Conteneur du texte et choix de combat */
 
 
-.choix p{
-font-size: 2.em;
+.choice-box p{
+
+font-size: 1em;
+color: white;
 }
 
 
 .choix{
     position: absolute;
-    bottom: -10%;
-    display: flex;
+    bottom: -0%;
     width: 100%;
-    justify-content: space-evenly;
+    height:70%;
+
 }
 
-#choix1{
+.choix #choix1{
+    position: absolute;
+    left: -3%;
     width: 20%;
-    padding-top: 0.3%;
-    
+    bottom: -2%;
 }
 
-#choix2{
+.choix #choix2{
+    position: absolute;
     padding-top: 0.3%;
+    left: 40%;
     width: 20%;
+    bottom: 0%;
 }
 
-#choix3{
-    padding-top: 0.3%;
+.choix #choix3{
+    position: absolute;
+    right: -3%;
     width: 20%;
-}
-
-.choice-box img{
-    width: 95%;
     aspect-ratio: 1/1;
+    bottom: -2%;
 }
 
+.choix img{
+    width: 100%;
+   aspect-ratio: 1/1;
+}
 
-.choice-box button{
-    background: none;
-    border: none;
-    width: 95%;
+@media only screen and (max-width:425px)  {
+
+    .choix img{
+        width: 100%;
+       aspect-ratio: 1/2;
+    }
+    
+
 }

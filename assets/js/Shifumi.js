@@ -28,6 +28,9 @@ var player_grass_cry = document.getElementById("player-grass-cry");
 var player_fire_name = document.getElementById("player-fire-name");
 var player_water_name = document.getElementById("player-water-name");
 var player_grass_name = document.getElementById("player-grass-name");
+var ai_fire_name = document.getElementById("ai-fire-name");
+var ai_water_name = document.getElementById("ai-water-name");
+var ai_grass_name = document.getElementById("ai-grass-name");
 var win_loose_modal = document.getElementById("win-loose");
 var draw_song = document.getElementById("draw")
 
@@ -50,6 +53,7 @@ var player = {
 var enemy = {
 
     pokemon: [3, 3, 3],
+    poke_name: ["Braségali", "Tortank", "Maracachi"],
     alive: [true, true, true],
 }
 // Create Animation
@@ -82,7 +86,9 @@ const player_react_time = {
 player_fire_name.innerText = player.poke_name[0];
 player_water_name.innerText = player.poke_name[1];
 player_grass_name.innerText = player.poke_name[2];
-
+ai_fire_name.innerText = enemy.poke_name[0];
+ai_water_name.innerText = enemy.poke_name[1];
+ai_grass_name.innerText = enemy.poke_name[2];
 function attack_ai() {
     let ai_index = Math.floor(Math.random() * 3);
 
@@ -111,11 +117,15 @@ function ending_match() {
             win_loose_text.style.display = "flex";
             win_loose_modal.style.backgroundColor = "rgba(0, 0, 0, 0.94)";
             result_win.innerText = "Defaite";
+            fight_song.pause();
+            fight_song.currentTime = 0;
         } else if (ai_loose > 1) {
             win_loose_modal.style.display = "block";
             win_loose_text.style.display = "flex";
             win_loose_modal.style.backgroundColor = "rgba(0, 0, 0, 0.94)"
             result_win.innerText = "Victoire";
+            fight_song.pause();
+            fight_song.currentTime = 0;
         }
 
     }
@@ -210,7 +220,7 @@ function reduce_life_player(choice_index, life_index) {
                 faint_song.play();
                 fire_pokemon.animate(faint_anim, player_react_time);
                 player.alive[choice_index] = false;
-
+                button_F.style.filter = "grayscale(1)";
                 fire_pokemon.style.opacity = 0
 
             } else if (player.pokemon[choice_index] > 1) {
@@ -227,6 +237,7 @@ function reduce_life_player(choice_index, life_index) {
                 faint_song.play();
                 water_pokemon.animate(faint_anim, player_react_time);
                 player.alive[choice_index] = false;
+                button_W.style.filter = "grayscale(1)";
                 water_pokemon.style.opacity = 0
             } else if (player.pokemon[choice_index] > 1) {
                 life_player2.style.backgroundColor = "#5DD531";
@@ -243,6 +254,7 @@ function reduce_life_player(choice_index, life_index) {
                 faint_song.play();
                 grass_pokemon.animate(faint_anim, player_react_time);
                 player.alive[choice_index] = false;
+                button_G.style.filter = "grayscale(1)";
                 grass_pokemon.style.opacity = 0
             } else if (player.pokemon[choice_index] > 1) {
                 life_player3.style.backgroundColor = "#5DD531";

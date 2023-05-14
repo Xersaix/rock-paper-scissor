@@ -45,6 +45,29 @@ main .battle-background{
     width:100%;
     height:30%;
 }
+.ai-life-bar p{
+
+    font-size: 50%;
+
+    color: white;
+}
+.ai-life-bar .type-icon{
+
+
+    width:20px;
+    height: 20px;
+    z-index: 8;
+}
+
+.ai-life-bar .player-pokemon-info{
+    position: absolute;
+    display: flex;
+    left: 15%;
+    top:0%;
+    flex-direction: row;
+
+    width:80%;
+}
 /* Gestion de la barre de vie  min-width:25% max-width:29.5% */
 .ai-life-bar #ai-life-bar1
 {
@@ -167,6 +190,8 @@ main .battle-background{
 /* Conteneur du texte et choix de combat */
 .choice-box{
 
+    display: flex;
+    flex-direction: column;
     position:absolute;
     width:100%;
     height:29.5%;

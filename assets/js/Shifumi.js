@@ -108,7 +108,7 @@ function ending_match() {
         if (player.pokemon[index] == 0) {
             player_loose += 1;
 
-        } else if (enemy.pokemon[index] == 0) {
+        }if (enemy.pokemon[index] == 0) {
             ai_loose += 1;
         }
 
@@ -288,7 +288,7 @@ function reduce_life_enemy(number, width_index) {
                 ai_life_player2.style.backgroundColor = "#FF0000";
             } else if (enemy.pokemon[number] > 1) {
                 ai_life_player2.style.backgroundColor = "#5DD531";
-            } else if (enemy.pokemon[number] == 0) {
+            } else if (enemy.pokemon[number] == 0 && enemy.alive[number]) {
                 ai_fire_cry.play();
                 faint_song.play();
                 fire_pokemon_ai.animate(faint_anim, player_react_time);
@@ -303,7 +303,7 @@ function reduce_life_enemy(number, width_index) {
                 ai_life_player1.style.backgroundColor = "#FF0000";
             } else if (enemy.pokemon[number] > 1) {
                 ai_life_player1.style.backgroundColor = "#5DD531";
-            } else if (enemy.pokemon[number] == 0) {
+            } else if (enemy.pokemon[number] == 0 && enemy.alive[number]) {
                 ai_water_cry.play()
                 faint_song.play();
                 water_pokemon_ai.animate(faint_anim, player_react_time);
@@ -319,7 +319,7 @@ function reduce_life_enemy(number, width_index) {
                 ai_life_player3.style.backgroundColor = "#FF0000";
             } else if (enemy.pokemon[number] > 1) {
                 ai_life_player3.style.backgroundColor = "#5DD531";
-            } else if (enemy.pokemon[number] == 0) {
+            } else if (enemy.pokemon[number] == 0 && enemy.alive[number]) {
                 ai_grass_cry.play()
                 faint_song.play();
                 grass_pokemon_ai.animate(faint_anim, player_react_time);

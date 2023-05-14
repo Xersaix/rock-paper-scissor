@@ -23,6 +23,7 @@ body{
 
 font-size: 1em;
 color: white;
+
 }
 
 
@@ -37,7 +38,7 @@ color: white;
 .choix #choix1{
     position: absolute;
     left: -3%;
-    width: 20%;
+    width: 15%;
     bottom: -2%;
 }
 
@@ -45,14 +46,14 @@ color: white;
     position: absolute;
     padding-top: 0.3%;
     left: 40%;
-    width: 20%;
+    width: 15%;
     bottom: 0%;
 }
 
 .choix #choix3{
     position: absolute;
     right: -3%;
-    width: 20%;
+    width: 15%;
     aspect-ratio: 1/1;
     bottom: -2%;
 }
@@ -71,3 +72,5 @@ color: white;
     
 
 }
+
+

@@ -18,6 +18,7 @@ var fire_pokemon_ai = document.getElementById("ai-poke1");
 var grass_pokemon_ai = document.getElementById("ai-poke3");
 var choice = ["fire", "water", "grass"];
 var faint_song = document.getElementById("faint")
+var victory_song = document.getElementById("victory")
 var tackle_song = document.getElementById("tackle");
 var ai_fire_cry = document.getElementById("ai-fire-cry");
 var ai_water_cry = document.getElementById("ai-water-cry");
@@ -126,6 +127,7 @@ function ending_match() {
             result_win.innerText = "Victoire";
             fight_song.pause();
             fight_song.currentTime = 0;
+            victory_song.play();
         }
 
     }

@@ -3,16 +3,13 @@
 var modal = document.getElementById("myModal");
 var pokeball = document.getElementById("menu-pokeball");
 var pokeball_text = document.querySelector("#pokeball-text");
-var fight = document.getElementById("fight-button")
-var fight_song = document.getElementById("battle_song")
-var poke_text = document.getElementById("pokeball-text")
-var loader = document.getElementById("loader")
+var fight = document.getElementById("fight-button");
+var fight_song = document.getElementById("battle_song");
+var poke_text = document.getElementById("pokeball-text");
+var loader = document.getElementById("loader");
 
 
 
-// Get the button that opens the modal
-
-// When the user clicks the button, open the modal 
 window.onload = function () {
 
     loader.style.display = "none"

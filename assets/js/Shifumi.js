@@ -19,6 +19,12 @@ var grass_pokemon_ai = document.getElementById("ai-poke3");
 var choice = ["fire", "water", "grass"];
 var faint_song
 var tackle_song = document.getElementById("tackle");
+var win_loose_modal = document.getElementById("win-loose");
+var win_loose_text = document.getElementById("pokeball-text-result")
+var result_win = document.getElementById("result-text")
+
+
+win_loose_modal.style.display = "none"
 
 // point de vie des pokemon du joueur
 var player = {
@@ -73,6 +79,41 @@ function attack_ai() {
     return ai_index
 }
 
+function ending_match()
+{
+    let player_loose = 0 ;
+    let ai_loose = 0;
+for (let index = 0;  index < player.pokemon.length ; index++) {
+
+
+    if(player.pokemon[index] == 0)
+    {
+        player_loose += 1;
+
+    }else if(enemy.pokemon[index] == 0)
+    {
+        ai_loose += 1;
+    }
+
+    if(player_loose == 2)
+    {
+        win_loose_modal.style.display = "block";
+        win_loose_text.style.display = "block";
+        win_loose_modal.style.backgroundColor = "rgba(0, 0, 0, 0.94)";
+        result_win.innerText = "Defaite";
+    }else if(ai_loose == 2)
+    {
+        win_loose_modal.style.display = "block";
+        win_loose_text.style.display = "flex";
+        win_loose_modal.style.backgroundColor = "rgba(0, 0, 0, 0.94)"
+        result_win.innerText = "Victoire";
+    }
+
+}
+    console.log("Player lost "+ player_loose +"pokemon")
+    console.log("Ai lost "+ ai_loose +"pokemon")
+}
+
 // Fonction qui gère le combat
 function battle(player_index) {
 
@@ -120,7 +161,7 @@ function battle(player_index) {
         reduce_life_player(player_index, player.pokemon[player_index])
         console.log("YOU LOSE")
     }
-
+    ending_match();
 }
 
 // function qui gerent la reduction des point de vie du joueur
